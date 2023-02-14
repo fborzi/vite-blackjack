@@ -10,14 +10,11 @@ const myGame = (() => {
     const   types     = ['C', 'H', 'D', 'S'],
             specials  = ['A', 'J', 'Q', 'K'];
 
-
-    //HTML References
     const   btnNew  = document.querySelector('#btnNew'),
             btnCard = document.querySelector('#btnCard'),
             btnStop = document.querySelector('#btnStop'),
             smalls = document.querySelectorAll('small'),
             divCards = document.querySelectorAll('.divCards');
-
 
     const newGame = ( numberOfPlayers = 2 ) => {
         deck = createDeck( types, specials );
@@ -45,23 +42,6 @@ const myGame = (() => {
         return playerPoints[turn];
     }
 
-    // const winner = () => {
-
-    //     const[ points, computerPoints ] = playerPoints;
-
-    //     setTimeout(() => {
-    //         if (computerPoints === playerPoints) {
-    //             alert('TIE!');
-    //         } else if (points > 21) {
-    //             alert('YOU LOST :(');
-    //         } else if (computerPoints > 21) {
-    //             alert('YOU WON!');
-    //         } else {
-    //             alert('YOU LOST :(');
-    //         }
-    //     }, 100);
-    // }
-
     const computerTurn = ( points ) => {
         let computerPoints = 0;
 
@@ -73,7 +53,7 @@ const myGame = (() => {
 
         } while ((computerPoints < points) && (points <= 21));
 
-        winner( playerPoints);
+        winner( playerPoints );
         
     }
 
@@ -83,7 +63,6 @@ const myGame = (() => {
 
         const card = takeCard( deck );
         const playerPoints = managePoints( card, 0 );
-        // smalls[0].innerText = playerPoints;
 
         showCards( card, 0, divCards );
 
